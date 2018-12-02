@@ -1,0 +1,61 @@
+/*
+SWC Folder :
+C:\Users\ΗΟΜΕ\AppData\Local\Adobe\Animate CC 2018\en_US\Configuration\Components
+*/
+
+
+/*
+demo._setInstanceName("demo");
+demo._setEchoString("JustEcho"); // Αν δεν οριστεί default ειναι echoMyEvent
+
+
+
+
+function callData(): void {
+	demo.addEventListener("JustEcho", collectMyEvent);
+	demo.addEventListener("UsePhpError", collectMyError);	
+	demo._setPhpCaller("Something");
+	demo._setPhpPath("http://omicron2.synology.me:8282/oxygen_dev/php/CommonFiles/SelectPDO.php");
+	demo._setPhpParameters("select * from memo", 5, "#", 2, 2);
+	demo.callPhp();
+}
+
+
+
+function collectMyEvent(eventObj: Object): void {
+	var myEventObj: Object = new Object();
+	myEventObj = demo._getData();
+	
+	demo.removeEventListener("JustEcho", collectMyEvent);
+	demo.removeEventListener("UsePhpError", collectMyError);	
+	
+	trace("myEventObj.myResult:" + myEventObj.myResult);
+	trace("myEventObj.myCaller:" + myEventObj.myCaller);
+	trace("myEventObj.myPhp:" + myEventObj.myPhp);
+	trace("myEventObj.myQuery:" + myEventObj.myQuery);
+	trace("myEventObj.myData  :"+myEventObj.myData);
+	trace("myEventObj.myMsg   :" + myEventObj.myMsg);
+	if (myEventObj.theCallerIs == "No_Caller_Set") {
+		trace("myEventObj.myResult:" + myEventObj.myResult);
+	}
+}
+
+
+
+function collectMyError(eventObj: Object): void {
+	var myEventObj: Object = new Object();
+	myEventObj = demo._getData();	
+	
+	demo.removeEventListener("JustEcho", collectMyEvent);
+	demo.removeEventListener("UsePhpError", collectMyError);
+	
+	trace("myEventObj.myResult:" + myEventObj.myResult);
+	trace("myEventObj.myPhp:" + myEventObj.myPhp);
+	trace("myEventObj.myQuery:" + myEventObj.myQuery);
+	trace(demo._getErrorMsg());
+};
+
+
+callData();
+
+*/

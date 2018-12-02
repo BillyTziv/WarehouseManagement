@@ -1,0 +1,65 @@
+// Component UsePhp 1.00
+// Default Caller Value : No_Caller_Set
+// Default Echo Type Value : echoMyEvent
+// Default Instance Name Set to Value : demo
+// Καλή πρακτική τα addEventListener να γίνοται removeEventListener
+ 
+/*
+Στον Φάκελο php/CommonFiles/ Υπάρχουν 4 βασικά php : 
+InsertPDO.php Δέχεται 2 παραμέτρους 1η ο πίνακας 2η τα πεδία - δεδομένα ενωμένα με ^
+DeletePDO.php Δέχεται 3 παραμέτρους 1η ο πίνακας 2η To Rec_Id της εγγραφής πρός διαγραφή
+                      3η Σε ποιά στύλη είναι το πεδίο που θα μπεί στην where για να γίνει η διαγραφή
+                      πχ 'therapy_place','345','0'  Πίνακας therapy_place Rec_Id 345 και είναι η πρώτη στύλη οπότε 0 
+SelectPDO.php Δέχεται 5 παραμέτρους 1η το query 2η O αριθμός των στυλών που επιστρέφει το query
+                      3η Ο χαρακτήρας που χωρίζει τις γραμμές πχ # Τα πεδία πάντα χωρίζονται με ^ και τα υποπεδία με @@
+                      4η Τα δεδκαδικά για τις αξίες πχ 2 5η Τα δεκαδικά για τις ποσότητες πχ 4
+UpdatePDO.php Δέχεται 4 παραμέτρους 1η ο πίνακας 2η η τιμή που θα αλλάξω και το Id της εγγραφής ενωμένα με ^ πχ Αίθουσα2^2345
+                      3η Ο αριθμός της στύλης που θα γίνει η αλλαγή πχ 1
+                      4η Ο αριθμός της στύλης που είναι το Rec_id πχ 0
+*/
+ 
+demo._setInstanceName("Type Object Instance Name Here");
+demo._setEchoString("Type Something");// Αν δεν οριστεί default ειναι echoMyEvent
+ 
+demo.addEventListener("echoMyEvent",collectMyEvent);
+demo.addEventListener("UsePhpError",collectMyError);
+ 
+function callData():void{
+   demo._setPhpCaller("Something");
+   demo._setPhpPath("http://omicron2.synology.me:8282/oxygen_dev/php/CommonFiles/SelectPDO.php");
+   demo._setMyParametersToPhp(...)
+   demo.callPhp();
+}
+ 
+function collectMyEvent(eventObj:Object):void {
+   var myEventObj: Object = new Object();
+   myEventObj = demo._getData();
+
+   demo.removeEventListener("echoMyEvent",collectMyEvent);
+   demo.removeEventListener("UsePhpError",collectMyError);
+
+   //myEventObj.myResult 	--> If i have Done  value all is ok
+   //myEventObj.myCaller     --> For what use I call the collectMyEvent function
+   //myEventObj.myPhp		--> php full path
+   //myEventObj.myQuery		--> Το query που έστειλα
+   //myEventObj.myData   	--> My Data in one long string format
+   //myEventObj.myMsg		--> Extra info or messges that i want to have from phph
+   if (myEventObj.myCaller=="No_Caller_Set"){
+      // Do Something...
+      // πχ loadingMc.visible = false;
+   }
+}
+ 
+function collectMyError(eventObj:Object):void {
+   var myEventObj: Object = new Object();
+   myEventObj = demo._getData();
+
+   demo.removeEventListener("echoMyEvent",collectMyEvent);
+   demo.removeEventListener("UsePhpError",collectMyError);
+
+   //myEventObj.myResult 	--> If i have Done  value all is ok
+   //myEventObj.myCaller     --> For what use I call the collectMyEvent function
+   //myEventObj.myPhp		--> php full path
+   //myEventObj.myQuery		--> Το query που έστειλα
+   trace(demo._getErrorMsg());
+}
