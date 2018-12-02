@@ -6,10 +6,10 @@ The idea behind this project is to create a simple application for fast and quic
 
 # Screenshots
 WarehouseManagement landing screen is the following. There are two main elements in that screen. The first one is the recipient history and the second one is the current recipient with all the products and some other details.
-![image]()
+![image](https://github.com/BillyTziv/WarehouseManagement/blob/master/Screenshots/recipient-history.PNG)
 
 In the first screen the user and create a new recipient with the supplier name. A new unique ID is created and then the following screen is displayed. 
-![image]()
+![image](https://github.com/BillyTziv/WarehouseManagement/blob/master/Screenshots/new-recipient.PNG)
 
 # Licence
 This project is licensed under the MIT License - see the LICENSE.md file for details
